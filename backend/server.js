@@ -1,6 +1,8 @@
 import express from "express";
 import cors from "cors";
 import SkillRouter from "./app/routes/skills.routes.js";
+import StudentRouter from "./app/routes/students.routes.js";
+import InternshipRouter from "./app/routes/internships.routes.js";
 
 const app = express();
 
@@ -28,6 +30,8 @@ app.get("/", (request, response) => {
 const PORT = process.env.PORT || 8080;
 
 SkillRouter(app);
+StudentRouter(app);
+InternshipRouter(app);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
