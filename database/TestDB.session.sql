@@ -1,3 +1,7 @@
+CREATE DATABASE InternshipDB;
+
+USE InternshipDB;
+
 /* If you ever need to recreate the skills table */
 DROP TABLE IF EXISTS SKILLS;
 CREATE TABLE SKILLS (
@@ -26,7 +30,7 @@ CREATE TABLE IF NOT EXISTS INTERNSHIPS (
 /* If you ever need to recreate the students table */
 DROP TABLE IF EXISTS STUDENTS;
 CREATE TABLE IF NOT EXISTS STUDENTS (
-  studentID INT NOT NULL, 
+  studentID VARCHAR(100) NOT NULL, 
   studentName VARCHAR(100) NOT NULL,
   studentMajor VARCHAR(100) NOT NULL,
   PRIMARY KEY (studentID)
@@ -42,5 +46,8 @@ VALUES ('Behavioral Therapist Intern', 'This is an internship about behavioral t
 
 /* Inserting a value into the students table */
 INSERT INTO STUDENTS (studentID, studentName, studentMajor) 
-VALUES (906274349, 'Andy Luu', 'Computer Science');
+VALUES ('andyluu', 'Andy Luu', 'Computer Science');
 
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+
+flush privileges;
