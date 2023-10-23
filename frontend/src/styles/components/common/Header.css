@@ -1,0 +1,33 @@
+.Header {
+  height: 64px;
+  background-color: var(--primary-color);
+  display: flex;
+  justify-content: space-between;
+  padding-left: 16px;
+  padding-right: 16px;
+  color: #fff;
+  font-family: Rubik;
+  font-style: normal;
+  line-height: normal;
+}
+
+.Header-title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.Header-accountButton {
+  border-radius: 20px;
+  background: var(--secondary, #e5751f);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: auto;
+  margin-bottom: auto;
+  color: #fff;
+  padding: 8px 16px;
+  cursor: pointer;
+}
