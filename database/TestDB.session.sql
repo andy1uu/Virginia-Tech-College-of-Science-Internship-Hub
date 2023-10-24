@@ -1,7 +1,3 @@
-CREATE DATABASE InternshipDB;
-
-USE InternshipDB;
-
 /* If you ever need to recreate the skills table */
 DROP TABLE IF EXISTS SKILLS;
 CREATE TABLE SKILLS (
@@ -47,7 +43,3 @@ VALUES ('Behavioral Therapist Intern', 'This is an internship about behavioral t
 /* Inserting a value into the students table */
 INSERT INTO STUDENTS (studentID, studentName, studentMajor) 
 VALUES ('andyluu', 'Andy Luu', 'Computer Science');
-
-ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
-
-flush privileges;

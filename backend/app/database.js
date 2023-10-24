@@ -2,10 +2,10 @@ import mysql from "mysql";
 
 // Create a connection to the database
 const connection = mysql.createConnection({
-  host: "localhost",
+  host: "db.cs.vt.edu",
   user: "andyluu",
-  password: "password",
-  database: "InternshipDB",
+  password: "cosInternshipDB4230",
+  database: "andyluu_cosinternshipdb",
 });
 
 // open the MySQL connection
