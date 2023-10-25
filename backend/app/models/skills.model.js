@@ -1,7 +1,7 @@
 import sql from "../database.js";
 
 // Constructor
-const Skill = function(skill) {
+const Skill = function (skill) {
   this.skillName = skill.skillName;
 };
 
