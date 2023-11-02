@@ -5,7 +5,14 @@ const databaseConfig = {
   user: "andyluu",
   password: "cosInternshipDB4230",
   database: "andyluu_cosinternshipdb",
-};
+}; 
+
+/* const databaseConfig = {
+  host: "localhost",
+  user: "root",
+  password: "password",
+  database: "andyluu_cosinternshipdb",
+}; */
 
 // Create a connection to the database
 var connection;
@@ -19,7 +26,7 @@ const handleDisconnect = () => {
     if (err) {
       // or restarting (takes a while sometimes).
       console.log("error when connecting to db:", err);
-      setTimeout(handleDisconnect, 2000); // We introduce a delay before attempting to reconnect,
+      setTimeout(handleDisconnect, 10000); // We introduce a delay before attempting to reconnect,
     } // to avoid a hot loop, and to allow our node script to
   }); // process asynchronous requests in the meantime.
   console.log("Successfully connected to the database.");
