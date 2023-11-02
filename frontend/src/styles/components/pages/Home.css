@@ -182,8 +182,6 @@
   padding: 4px 8px;
   background-color: var(--primary-color);
   border-radius: 20px;
-    margin-bottom: 8px;
-
 }
 
 .Home-currInternshipJobType {
@@ -194,7 +192,6 @@
   padding: 4px 8px;
   background-color: var(--primary-color);
   border-radius: 20px;
-  margin-bottom: 8px;
 }
 
 .Home-currInternshipApplyLink {
@@ -205,4 +202,37 @@
   background-color: var(--primary-color);
   border-radius: 20px;
   text-decoration: none;
+  margin-bottom: 8px;
+  display: inline-block;
+}
+
+.Home-currInternshipDescriptionContainer {
+  margin-bottom: 8px;
+}
+
+.Home-currInternshipDescriptionTitle {
+  color: var(--primary-color);
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.Home-currInternshipDescription {
+  color: var(--tertiary-color);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.Home-currInternshipSkillsContainer {
+}
+
+.Home-currInternshipSkillsTitle {
+  color: var(--primary-color);
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.Home-currInternshipSkills {
+
 }

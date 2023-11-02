@@ -127,6 +127,18 @@ const Home = () => {
           >
             Apply
           </a>
+          <div className="Home-currInternshipDescriptionContainer">
+            <div className="Home-currInternshipDescriptionTitle">
+              Description
+            </div>
+            <div className="Home-currInternshipDescription">
+              {currentInternship.internshipDescription}
+            </div>
+          </div>
+          <div className="Home-currInternshipSkillsContainer">
+            <div className="Home-currInternshipSkillsTitle">Skills</div>
+            <div className="Home-currInternshipSkills"></div>
+          </div>
         </div>
       </div>
     </section>

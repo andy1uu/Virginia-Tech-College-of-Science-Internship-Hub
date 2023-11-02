@@ -32,6 +32,13 @@ CREATE TABLE IF NOT EXISTS STUDENTS (
   PRIMARY KEY (studentID)
 );
 
+DROP TABLE IF EXISTS JOBSKILLS;
+CREATE TABLE JOBSKILLS (
+  jobID INT NOT NULL,
+  skillID INT NOT NULL,
+  PRIMARY KEY (jobID, skillID)
+);
+
 /* Inserting a value into the skills table */
 INSERT INTO SKILLS (skillName) 
 VALUES ('Python');
@@ -70,3 +77,20 @@ INSERT INTO SKILLS (skillName)
 VALUES ('Student Information Systems');
 INSERT INTO SKILLS (skillName) 
 VALUES ('Learning Management Systems');
+
+INSERT INTO JOBSKILLS (jobID, skillID) 
+VALUES (1,1);
+INSERT INTO JOBSKILLS (jobID, skillID) 
+VALUES (2,3);
+INSERT INTO JOBSKILLS (jobID, skillID) 
+VALUES (2,1);
+INSERT INTO JOBSKILLS (jobID, skillID) 
+VALUES (4,1);
+INSERT INTO JOBSKILLS (jobID, skillID) 
+VALUES (5,1);
+INSERT INTO JOBSKILLS (jobID, skillID) 
+VALUES (6,1);
+INSERT INTO JOBSKILLS (jobID, skillID) 
+VALUES (7,1);
+INSERT INTO JOBSKILLS (jobID, skillID) 
+VALUES (1,6);
