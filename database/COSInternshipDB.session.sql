@@ -43,3 +43,30 @@ VALUES ('Behavioral Therapist Intern', 'This is an internship about behavioral t
 /* Inserting a value into the students table */
 INSERT INTO STUDENTS (studentID, studentName, studentMajor) 
 VALUES ('andyluu', 'Andy Luu', 'Computer Science');
+
+INSERT INTO SKILLS (skillName) 
+VALUES ('Communications');
+INSERT INTO SKILLS (skillName) 
+VALUES ('Writing');
+INSERT INTO SKILLS (skillName) 
+VALUES ('Planning');
+INSERT INTO SKILLS (skillName) 
+VALUES ('Management');
+INSERT INTO SKILLS (skillName) 
+VALUES ('Coordinating');
+INSERT INTO SKILLS (skillName) 
+VALUES ('Customer Service');
+INSERT INTO SKILLS (skillName) 
+VALUES ('Leadership');
+INSERT INTO SKILLS (skillName) 
+VALUES ('Microsoft Office');
+INSERT INTO SKILLS (skillName) 
+VALUES ('Research');
+INSERT INTO SKILLS (skillName) 
+VALUES ('Problem Solving');
+INSERT INTO SKILLS (skillName) 
+VALUES ('Zoom (Video Conferencing Tool)');
+INSERT INTO SKILLS (skillName) 
+VALUES ('Student Information Systems');
+INSERT INTO SKILLS (skillName) 
+VALUES ('Learning Management Systems');
