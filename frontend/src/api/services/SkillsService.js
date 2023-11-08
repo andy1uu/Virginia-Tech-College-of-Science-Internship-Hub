@@ -24,6 +24,10 @@ const removeSkills = () => {
   return baseAPI.delete("/skills");
 };
 
+const getSkillsByJobId = (jobId) => {
+  return baseAPI.get(`/skills/job/${jobId}`);
+};
+
 const SkillsService = {
   create,
   getSkills,
@@ -31,6 +35,7 @@ const SkillsService = {
   updateSkillById,
   removeSkillById,
   removeSkills,
+  getSkillsByJobId,
 };
 
 export default SkillsService;

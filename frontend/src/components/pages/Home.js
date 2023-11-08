@@ -13,21 +13,31 @@ const Home = () => {
   const citizenshipTypes = ["US Citizen", "Permanent Resident", "Non-Citizen"];
 
   useEffect(() => {
+    const internshipsWithSkills = [];
+
     InternshipsService.getInternships().then((response) => {
       const data = response.data;
-      setInternships(data);
-      if (internships) {
-        setCurrentInternship(data[0]);
-      }
+
+      data.map((internship) => {
+        return SkillsService.getSkillsByJobId(internship.internshipID).then(
+          (response) => {
+            const internshipWithSkills = {
+              ...internship,
+              internshipSkills: response.data,
+            };
+            internshipsWithSkills.push(internshipWithSkills);
+          }
+        );
+      });
     });
+
+    setInternships(internshipsWithSkills);
 
     SkillsService.getSkills().then((response) => {
       const data = response.data;
       setSkills(data);
     });
-  });
-
-  console.log(currentInternship);
+  }, []);
 
   return (
     <section className="Home">
@@ -73,34 +83,20 @@ const Home = () => {
         </div>
 
         <div className="Home-middle">
-          {internships.map((internship) => {
-            return (
-              <div
-                className="Home-internshipContainer"
-                key={internship.internshipID}
-                onClick={(internship) => setCurrentInternship(internship)}
-              >
-                <div className="Home-internshipTitle">
-                  {internship.internshipTitle}
-                </div>
-                <div className="Home-internshipCompany">
-                  {internship.internshipCompany}
-                </div>
-
-                <div className="Home-internshipLocation">
-                  {internship.internshipLocation}
-                </div>
-                <div className="Home-internshipCitizenshipAndJobType">
-                  <div className="Home-internshipCitizenship">
-                    {internship.internshipCitizenship}
-                  </div>
-                  <div className="Home-internshipJobType">
-                    {internship.internshipJobType}
-                  </div>
-                </div>
-              </div>
-            );
-          })}
+          {JSON.stringify(internships)}
+          <div
+            className="Home-internshipContainer"
+            onClick={(internship) => setCurrentInternship(internship)}
+          >
+            <div className="Home-internshipTitle"></div>
+          </div>
+          <div className="Home-internshipCompany"></div>
+          <div className="Home-internshipLocation"></div>
+          <div className="Home-internshipCitizenshipAndJobType">
+            <div className="Home-internshipCitizenship"></div>
+            <div className="Home-internshipJobType"></div>
+          </div>
+          <div className="Home-internshipSkills"></div>
         </div>
         <div className="Home-right">
           <div className="Home-currInternshipTitle">
