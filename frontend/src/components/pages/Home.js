@@ -8,36 +8,83 @@ const Home = () => {
   const [internships, setInternships] = useState([]);
   const [currentInternship, setCurrentInternship] = useState({});
   const [skills, setSkills] = useState([]);
+  const [internshipSkills, setInternshipSkills] = useState({});
 
   const jobTypes = ["Internship", "Undergraduate Research"];
   const citizenshipTypes = ["US Citizen", "Permanent Resident", "Non-Citizen"];
 
   useEffect(() => {
-    const internshipsWithSkills = [];
+    async function fetchData() {
+      await InternshipsService.getInternships().then((response) => {
+        const data = response.data;
+        setInternships(data);
+      });
 
-    InternshipsService.getInternships().then((response) => {
-      const data = response.data;
-
-      data.map((internship) => {
-        return SkillsService.getSkillsByJobId(internship.internshipID).then(
+      await internships.forEach((internship) => {
+        SkillsService.getSkillsByJobId(internship.internshipID).then(
           (response) => {
-            const internshipWithSkills = {
-              ...internship,
-              internshipSkills: response.data,
-            };
-            internshipsWithSkills.push(internshipWithSkills);
+            const data = response.data;
+            internshipSkills[internship.internshipID] = data;
+            setInternshipSkills(internshipSkills);
           }
         );
+
+        setTimeout(5000);
       });
-    });
 
-    setInternships(internshipsWithSkills);
+      await SkillsService.getSkills().then((response) => {
+        const data = response.data;
+        setSkills(data);
+      });
+    }
+    fetchData();
+  });
 
-    SkillsService.getSkills().then((response) => {
-      const data = response.data;
-      setSkills(data);
+  const renderInternships = () => {
+    console.log(internshipSkills);
+    return internships.map((internship) => {
+      return (
+        <div
+          className="Home-internshipContainer"
+          onClick={() => setCurrentInternship(internship)}
+          key={internship.internshipID}
+        >
+          <div className="Home-internshipTitle">
+            {internship.internshipTitle}
+          </div>
+          <div className="Home-internshipCompany">
+            {internship.internshipCompany}
+          </div>
+          <div className="Home-internshipLocation">
+            {internship.internshipLocation}
+          </div>
+          <div className="Home-internshipCitizenshipAndJobType">
+            <div className="Home-internshipCitizenship">
+              {internship.internshipCitizenship}
+            </div>
+            <div className="Home-internshipJobType">
+              {internship.internshipJobType}
+            </div>
+          </div>
+          <div className="Home-internshipSkills">
+            {internshipSkills[internship.internshipID] &&
+              internshipSkills[internship.internshipID].slice(0,3).map(
+                (internshipSkill) => {
+                  return (
+                    <div
+                      className="Home-internshipSkill"
+                      key={internshipSkill.skillID}
+                    >
+                      {internshipSkill.skillName}
+                    </div>
+                  );
+                }
+              )}
+          </div>
+        </div>
+      );
     });
-  }, []);
+  };
 
   return (
     <section className="Home">
@@ -82,22 +129,7 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="Home-middle">
-          {JSON.stringify(internships)}
-          <div
-            className="Home-internshipContainer"
-            onClick={(internship) => setCurrentInternship(internship)}
-          >
-            <div className="Home-internshipTitle"></div>
-          </div>
-          <div className="Home-internshipCompany"></div>
-          <div className="Home-internshipLocation"></div>
-          <div className="Home-internshipCitizenshipAndJobType">
-            <div className="Home-internshipCitizenship"></div>
-            <div className="Home-internshipJobType"></div>
-          </div>
-          <div className="Home-internshipSkills"></div>
-        </div>
+        <div className="Home-middle">{renderInternships()}</div>
         <div className="Home-right">
           <div className="Home-currInternshipTitle">
             {currentInternship.internshipTitle}
@@ -133,7 +165,21 @@ const Home = () => {
           </div>
           <div className="Home-currInternshipSkillsContainer">
             <div className="Home-currInternshipSkillsTitle">Skills</div>
-            <div className="Home-currInternshipSkills"></div>
+            <div className="Home-currInternshipSkills">
+              {internshipSkills[currentInternship.internshipID] &&
+                internshipSkills[currentInternship.internshipID]
+                  .slice(0, 3)
+                  .map((internshipSkill) => {
+                    return (
+                      <div
+                        className="Home-currInternshipSkill"
+                        key={internshipSkill.skillID}
+                      >
+                        {internshipSkill.skillName}
+                      </div>
+                    );
+                  })}
+            </div>
           </div>
         </div>
       </div>

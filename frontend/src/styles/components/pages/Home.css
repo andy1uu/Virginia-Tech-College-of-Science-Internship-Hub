@@ -1,7 +1,7 @@
 .Home {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: calc(100vh - 132px);
   padding: 32px;
   font-style: normal;
   line-height: normal;
@@ -118,6 +118,7 @@
 .Home-internshipCitizenshipAndJobType {
   display: flex;
   gap: 8px;
+  margin-bottom: 8px;
 }
 
 .Home-internshipCitizenship {
@@ -137,6 +138,21 @@
   font-weight: 400;
   padding: 4px 8px;
   background-color: var(--primary-color);
+  border-radius: 20px;
+}
+
+.Home-internshipSkills {
+  display: flex;
+  gap: 8px;
+}
+
+.Home-internshipSkill {
+  color: #fff;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 400;
+  padding: 4px 8px;
+  background-color: var(--secondary-color);
   border-radius: 20px;
 }
 
@@ -177,7 +193,7 @@
 .Home-currInternshipCitizenship {
   color: #fff;
   text-align: center;
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 400;
   padding: 4px 8px;
   background-color: var(--primary-color);
@@ -187,7 +203,7 @@
 .Home-currInternshipJobType {
   color: #fff;
   text-align: center;
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 400;
   padding: 4px 8px;
   background-color: var(--primary-color);
@@ -196,7 +212,7 @@
 
 .Home-currInternshipApplyLink {
   color: #fff;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 400;
   padding: 8px 16px;
   background-color: var(--primary-color);
@@ -234,5 +250,16 @@
 }
 
 .Home-currInternshipSkills {
+  display: flex;
+  gap: 8px;
+}
 
+.Home-currInternshipSkill {
+  color: #fff;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 4px 8px;
+  background-color: var(--secondary-color);
+  border-radius: 20px;
 }
