@@ -44,6 +44,13 @@
   font-size: 16px;
   font-weight: 500;
   margin-bottom: 8px;
+  padding: 4px;
+}
+
+.Home-jobType:hover {
+  color: #FFF;
+  border-radius: 32px;
+  background: var(--tertiary-color);
 }
 
 .Home-citizenshipTypesTitle {
@@ -62,6 +69,13 @@
   font-size: 16px;
   font-weight: 500;
   margin-bottom: 8px;
+  padding: 4px;
+}
+
+.Home-citizenshipType:hover {
+  color: #FFF;
+  border-radius: 32px;
+  background: var(--tertiary-color);
 }
 
 .Home-skillsTitle {
@@ -80,6 +94,13 @@
   font-size: 16px;
   font-weight: 500;
   margin-bottom: 8px;
+  padding: 4px;
+}
+
+.Home-skill:hover {
+  color: #FFF;
+  border-radius: 32px;
+  background: var(--tertiary-color);
 }
 
 .Home-middle {
