@@ -1,7 +1,7 @@
 import sql from "../database.js";
 
 // Constructor
-const Skill = function(skill) {
+const Skill = function (skill) {
   this.skillName = skill.skillName;
 };
 
@@ -146,6 +146,38 @@ Skill.removeSkills = (result) => {
       response.affectedRows
     );
     result(null, response);
+  });
+};
+
+// Get all Skills by Job ID
+Skill.getSkillsByJobId = (jobId, result) => {
+  let query =
+    "SELECT * FROM SKILLS INNER JOIN JOBSKILLS ON SKILLS.skillID = JOBSKILLS.skillID WHERE jobID = ?";
+
+  sql.query(query, jobId, (error, response) => {
+    if (error) {
+      console.log(
+        "Error when getting the Skills with the Internship Id: ",
+        jobId,
+        " Error: ",
+        error
+      );
+      result(error, null);
+      return;
+    }
+
+    if (response.length) {
+      console.log(
+        "Successfully got Skills with the Internship Id:",
+        jobId,
+        " Response: ",
+        response
+      );
+      result(null, response);
+      return;
+    }
+
+    result({ kind: "not_found" }, null);
   });
 };
 

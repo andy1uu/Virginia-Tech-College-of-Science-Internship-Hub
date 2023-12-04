@@ -1,7 +1,3 @@
-CREATE DATABASE InternshipDB;
-
-USE InternshipDB;
-
 /* If you ever need to recreate the skills table */
 DROP TABLE IF EXISTS SKILLS;
 CREATE TABLE SKILLS (
@@ -36,6 +32,13 @@ CREATE TABLE IF NOT EXISTS STUDENTS (
   PRIMARY KEY (studentID)
 );
 
+DROP TABLE IF EXISTS JOBSKILLS;
+CREATE TABLE JOBSKILLS (
+  jobID INT NOT NULL,
+  skillID INT NOT NULL,
+  PRIMARY KEY (jobID, skillID)
+);
+
 /* Inserting a value into the skills table */
 INSERT INTO SKILLS (skillName) 
 VALUES ('Python');
@@ -48,6 +51,57 @@ VALUES ('Behavioral Therapist Intern', 'This is an internship about behavioral t
 INSERT INTO STUDENTS (studentID, studentName, studentMajor) 
 VALUES ('andyluu', 'Andy Luu', 'Computer Science');
 
-ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+INSERT INTO SKILLS (skillName) 
+VALUES ("100-Ton Master Captain's License");
+INSERT INTO SKILLS (skillName) 
+VALUES ('Writing');
+INSERT INTO SKILLS (skillName) 
+VALUES ('Planning');
+INSERT INTO SKILLS (skillName) 
+VALUES ('Management');
+INSERT INTO SKILLS (skillName) 
+VALUES ('Coordinating');
+INSERT INTO SKILLS (skillName) 
+VALUES ('Customer Service');
+INSERT INTO SKILLS (skillName) 
+VALUES ('Leadership');
+INSERT INTO SKILLS (skillName) 
+VALUES ('Microsoft Office');
+INSERT INTO SKILLS (skillName) 
+VALUES ('Research');
+INSERT INTO SKILLS (skillName) 
+VALUES ('Problem Solving');
+INSERT INTO SKILLS (skillName) 
+VALUES ('Zoom (Video Conferencing Tool)');
+INSERT INTO SKILLS (skillName) 
+VALUES ('Student Information Systems');
+INSERT INTO SKILLS (skillName) 
+VALUES ('Learning Management Systems');
 
-flush privileges;
+INSERT INTO JOBSKILLS (jobID, skillID) 
+VALUES (1,1);
+INSERT INTO JOBSKILLS (jobID, skillID) 
+VALUES (2,3);
+INSERT INTO JOBSKILLS (jobID, skillID) 
+VALUES (2,1);
+INSERT INTO JOBSKILLS (jobID, skillID) 
+VALUES (4,1);
+INSERT INTO JOBSKILLS (jobID, skillID) 
+VALUES (5,1);
+INSERT INTO JOBSKILLS (jobID, skillID) 
+VALUES (6,1);
+INSERT INTO JOBSKILLS (jobID, skillID) 
+VALUES (7,1);
+INSERT INTO JOBSKILLS (jobID, skillID) 
+VALUES (1,6);
+INSERT INTO JOBSKILLS (jobID, skillID) 
+VALUES (3,6);
+
+SELECT * FROM SKILLS INNER JOIN JOBSKILLS ON SKILLS.skillID = JOBSKILLS.skillID WHERE jobID = 2;
+
+ALTER TABLE SPORT
+DROP COLUMN sportImageLink;
+
+SELECT assists, blocks, steals from BASKETBALLPLAYER WHERE playerID="00fb2704-aa25-4ef7-8972-cde454810810";
+
+SELECT playerID FROM AMERICANFOOTBALLPLAYER;

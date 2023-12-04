@@ -1,0 +1,286 @@
+.Home {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 132px);
+  padding: 32px;
+  font-style: normal;
+  line-height: normal;
+}
+
+.Home-container {
+  display: flex;
+  border: 2px solid var(--tertiary-color);
+  border-radius: 20px;
+  height: 100%;
+}
+
+.Home-left {
+  width: 20%;
+  padding: 16px;
+  border-right: 2px solid var(--tertiary-color);
+  overflow-y: auto;
+}
+
+.Home-filtersTitle {
+  text-align: center;
+  color: var(--primary-color);
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.Home-jobTypesTitle {
+  color: var(--secondary-color);
+  font-size: 20px;
+  font-style: italic;
+  font-weight: 600;
+}
+
+.Home-jobTypes {
+  padding: 8px;
+}
+
+.Home-jobType {
+  color: var(--tertiary-color);
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  padding: 4px;
+}
+
+.Home-jobType:hover {
+  color: #FFF;
+  border-radius: 32px;
+  background: var(--tertiary-color);
+}
+
+.Home-citizenshipTypesTitle {
+  color: var(--secondary-color);
+  font-size: 20px;
+  font-style: italic;
+  font-weight: 600;
+}
+
+.Home-citizenshipTypes {
+  padding: 8px;
+}
+
+.Home-citizenshipType {
+  color: var(--tertiary-color);
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  padding: 4px;
+}
+
+.Home-citizenshipType:hover {
+  color: #FFF;
+  border-radius: 32px;
+  background: var(--tertiary-color);
+}
+
+.Home-skillsTitle {
+  color: var(--secondary-color);
+  font-size: 20px;
+  font-style: italic;
+  font-weight: 600;
+}
+
+.Home-skills {
+  padding: 8px;
+}
+
+.Home-skill {
+  color: var(--tertiary-color);
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  padding: 4px;
+}
+
+.Home-skill:hover {
+  color: #FFF;
+  border-radius: 32px;
+  background: var(--tertiary-color);
+}
+
+.Home-middle {
+  width: 40%;
+  border-right: 2px solid var(--tertiary-color);
+  overflow-y: auto;
+}
+.Home-internshipContainer {
+  padding: 16px;
+}
+.Home-internshipContainer:not(:last-child) {
+  border-bottom: 2px solid var(--tertiary-color);
+}
+
+.Home-internshipTitle {
+  color: var(--primary-color);
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.Home-internshipCompany {
+  color: var(--secondary-color);
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.Home-internshipLocation {
+  color: var(--tertiary-color);
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 32px;
+}
+
+.Home-internshipCitizenshipAndJobType {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.Home-internshipCitizenship {
+  color: #fff;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 400;
+  padding: 4px 8px;
+  background-color: var(--primary-color);
+  border-radius: 20px;
+}
+
+.Home-internshipJobType {
+  color: #fff;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 400;
+  padding: 4px 8px;
+  background-color: var(--primary-color);
+  border-radius: 20px;
+}
+
+.Home-internshipSkills {
+  display: flex;
+  gap: 8px;
+}
+
+.Home-internshipSkill {
+  color: #fff;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 400;
+  padding: 4px 8px;
+  background-color: var(--secondary-color);
+  border-radius: 20px;
+}
+
+.Home-right {
+  padding: 16px;
+  width: 40%;
+  overflow-y: auto;
+}
+
+.Home-currInternshipTitle {
+  color: var(--primary-color);
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.Home-currInternshipCompany {
+  color: var(--secondary-color);
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.Home-currInternshipLocation {
+  color: var(--tertiary-color);
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.Home-currInternshipCitizenshipAndJobType {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+  height: fit-content;
+}
+
+.Home-currInternshipCitizenship {
+  color: #fff;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 4px 8px;
+  background-color: var(--primary-color);
+  border-radius: 20px;
+}
+
+.Home-currInternshipJobType {
+  color: #fff;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 4px 8px;
+  background-color: var(--primary-color);
+  border-radius: 20px;
+}
+
+.Home-currInternshipApplyLink {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 400;
+  padding: 8px 16px;
+  background-color: var(--primary-color);
+  border-radius: 20px;
+  text-decoration: none;
+  margin-bottom: 8px;
+  display: inline-block;
+}
+
+.Home-currInternshipDescriptionContainer {
+  margin-bottom: 8px;
+}
+
+.Home-currInternshipDescriptionTitle {
+  color: var(--primary-color);
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.Home-currInternshipDescription {
+  color: var(--tertiary-color);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.Home-currInternshipSkillsContainer {
+}
+
+.Home-currInternshipSkillsTitle {
+  color: var(--primary-color);
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.Home-currInternshipSkills {
+  display: flex;
+  gap: 8px;
+}
+
+.Home-currInternshipSkill {
+  color: #fff;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 4px 8px;
+  background-color: var(--secondary-color);
+  border-radius: 20px;
+}

@@ -67,8 +67,6 @@ SkillController.updateSkillById = (request, response) => {
     response.status(400).send({ message: "Request content can not be empty!" });
   }
 
-  console.log(request.body);
-
   const skillId = request.params.skillId;
 
   const updatedSkill = new Skill({ skillName: request.body.skillName });
@@ -129,6 +127,30 @@ SkillController.removeSkills = (request, response) => {
       response.send({
         message: "All skills were deleted successfully.",
       });
+    }
+  });
+};
+
+// Get one Skill by ID
+SkillController.getSkillsByJobId = (request, response) => {
+  console.log(request.params);
+  const jobId = request.params.jobId;
+
+  Skill.getSkillsByJobId(jobId, (error, data) => {
+    if (error) {
+      if (error.kind === "not_found") {
+        response.status(404).send({
+          message: "Skills not found with Job Id: " + jobId,
+        });
+      } else {
+        response.status(500).send({
+          message:
+            error.message ||
+            "Error when getting the Skills with the Job Id: " + jobId,
+        });
+      }
+    } else {
+      response.send(data);
     }
   });
 };

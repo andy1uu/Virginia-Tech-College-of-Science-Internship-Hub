@@ -1,7 +1,7 @@
 import sql from "../database.js";
 
 // Constructor
-const Internship = function(internship) {
+const Internship = function (internship) {
   this.internshipName = internship.internshipName;
 };
 
@@ -70,33 +70,38 @@ Internship.getInternshipById = (internshipId, result) => {
 
 // Update one Internship by ID
 Internship.updateInternshipById = (internshipId, newInternship, result) => {
-  let query = "UPDATE INTERNSHIPS SET internshipName = ? WHERE internshipId = ?";
+  let query =
+    "UPDATE INTERNSHIPS SET internshipName = ? WHERE internshipId = ?";
 
-  sql.query(query, [newInternship.internshipName, internshipId], (error, response) => {
-    if (error) {
+  sql.query(
+    query,
+    [newInternship.internshipName, internshipId],
+    (error, response) => {
+      if (error) {
+        console.log(
+          "Error when updating the Internship with the Id: ",
+          internshipId,
+          " Error: ",
+          error
+        );
+        result(error, null);
+        return;
+      }
+
+      if (response.affectedRows == 0) {
+        result({ kind: "not_found" }, null);
+        return;
+      }
+
       console.log(
-        "Error when updating the Internship with the Id: ",
+        "Successfully updated Internship with the Id:",
         internshipId,
-        " Error: ",
-        error
+        " Response: ",
+        response
       );
-      result(error, null);
-      return;
+      result(null, response);
     }
-
-    if (response.affectedRows == 0) {
-      result({ kind: "not_found" }, null);
-      return;
-    }
-
-    console.log(
-      "Successfully updated Internship with the Id:",
-      internshipId,
-      " Response: ",
-      response
-    );
-    result(null, response);
-  });
+  );
 };
 
 // Remove one Internship by ID
