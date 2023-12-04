@@ -52,7 +52,7 @@ INSERT INTO STUDENTS (studentID, studentName, studentMajor)
 VALUES ('andyluu', 'Andy Luu', 'Computer Science');
 
 INSERT INTO SKILLS (skillName) 
-VALUES ('Communications');
+VALUES ("100-Ton Master Captain's License");
 INSERT INTO SKILLS (skillName) 
 VALUES ('Writing');
 INSERT INTO SKILLS (skillName) 
