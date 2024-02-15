@@ -37,6 +37,30 @@ SkillController.getSkills = (request, response) => {
   });
 };
 
+// Get some Skills by Name Query
+SkillController.getSkillByNameQuery = (request, response) => {
+  const skillNameQuery = request.params.skillNameQuery;
+
+  Skill.getSkillByNameQuery(skillNameQuery, (error, data) => {
+    if (error) {
+      if (error.kind === "not_found") {
+        response.status(404).send({
+          message: "Skills not found with name query: " + skillNameQuery,
+        });
+      } else {
+        response.status(500).send({
+          message:
+            error.message ||
+            "Error when getting some Skills with the Name Query: " +
+              skillNameQuery,
+        });
+      }
+    } else {
+      response.send(data);
+    }
+  });
+};
+
 // Get one Skill by ID
 SkillController.getSkillById = (request, response) => {
   const skillId = request.params.skillId;

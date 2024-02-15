@@ -9,8 +9,8 @@ const SkillRouter = (app) => {
   // Get all Skills
   router.get("/", SkillController.getSkills);
 
-  // Get Skills by Job ID
-  router.get("/job/:jobId", SkillController.getSkillsByJobId);
+  // Get some Skills by Name
+  router.get("/search/:skillNameQuery", SkillController.getSkillByNameQuery);
 
   // Get one Skill by ID
   router.get("/:skillId", SkillController.getSkillById);

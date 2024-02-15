@@ -12,6 +12,10 @@ const getSkillById = (skillId) => {
   return baseAPI.get(`/skills/${skillId}`);
 };
 
+const getSkillByNameQuery = (skillNameQuery) => {
+  return baseAPI.get(`/skills/search/${skillNameQuery}`);
+};
+
 const updateSkillById = (skillId, data) => {
   return baseAPI.put(`/skills/${skillId}`, data);
 };
@@ -31,6 +35,7 @@ const getSkillsByJobId = (jobId) => {
 const SkillsService = {
   create,
   getSkills,
+  getSkillByNameQuery,
   getSkillById,
   updateSkillById,
   removeSkillById,

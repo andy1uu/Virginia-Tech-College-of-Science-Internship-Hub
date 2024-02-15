@@ -23,7 +23,7 @@ Skill.create = (newSkill, result) => {
 
 // Get all Skills
 Skill.getSkills = (result) => {
-  let query = "SELECT * FROM SKILLS";
+  let query = "SELECT * FROM SKILLS ORDER BY RAND() LIMIT 100";
 
   sql.query(query, (error, response) => {
     if (error) {
@@ -34,6 +34,37 @@ Skill.getSkills = (result) => {
 
     console.log("Successfully got all Skills: ", response);
     result(null, response);
+  });
+};
+
+// Get some Skills by Name Query
+Skill.getSkillByNameQuery = (skillNameQuery, result) => {
+  let query = "SELECT * FROM SKILLS WHERE skillName LIKE '%" + skillNameQuery +"%'";
+
+  sql.query(query, skillNameQuery, (error, response) => {
+    if (error) {
+      console.log(
+        "Error when getting Skills with the Name Query ",
+        skillNameQuery,
+        " Error: ",
+        error
+      );
+      result(error, null);
+      return;
+    }
+
+    if (response.length) {
+      console.log(
+        "Successfully got Skills with a similar name query to: ",
+        skillNameQuery,
+        " Response: ",
+        response
+      );
+      result(null, response);
+      return;
+    }
+
+    result({ kind: "not_found" }, null);
   });
 };
 

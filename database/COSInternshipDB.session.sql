@@ -14,13 +14,20 @@ CREATE TABLE IF NOT EXISTS INTERNSHIPS (
   internshipDescription VARCHAR(10000) NOT NULL,
   internshipCompany VARCHAR(100) NOT NULL,
   internshipLocation VARCHAR(100) NOT NULL,
-  internshipStartDate VARCHAR(100) NOT NULL,
-  internshipApplyDeadline VARCHAR(100) NOT NULL,
+  internshipApplyDeadline INT NOT NULL,
   internshipApplyLink VARCHAR(100) NOT NULL,
   internshipCitizenship VARCHAR(100) NOT NULL,
   internshipJobType VARCHAR(100) NOT NULL,
   PRIMARY KEY (internshipID)
 );
+
+UPDATE INTERNSHIPS SET internshipApplyDeadline="2023-12-08T08:33:27.000Z";
+
+ALTER TABLE INTERNSHIPS
+MODIFY COLUMN internshipApplyDeadline VARCHAR(100);
+
+ALTER TABLE INTERNSHIPS
+MODIFY COLUMN internshipApplyDeadline VARCHAR(100) NOT NULL;
 
 
 /* If you ever need to recreate the students table */
@@ -44,8 +51,8 @@ INSERT INTO SKILLS (skillName)
 VALUES ('Python');
 
 /* Inserting a value into the internships table */
-INSERT INTO INTERNSHIPS (internshipTitle, internshipDescription, internshipCompany, internshipLocation, internshipStartDate, internshipApplyDeadline, internshipApplyLink, internshipCitizenship, internshipJobType) 
-VALUES ('Behavioral Therapist Intern', 'This is an internship about behavioral therapists.', 'BetterHelp', 'Blacksburg, VA', '08/24/2024', '03/03/2024', 'www.betterhelp.com', 'US Citizen', 'Internship');
+INSERT INTO INTERNSHIPS (internshipTitle, internshipDescription, internshipCompany, internshipLocation,  internshipApplyDeadline, internshipApplyLink, internshipCitizenship, internshipJobType) 
+VALUES ('Behavioral Therapist Intern', 'This is an internship about behavioral therapists.', 'BetterHelp', 'Blacksburg, VA', '03/03/2024', 'www.betterhelp.com', 'US Citizen', 'Internship');
 
 /* Inserting a value into the students table */
 INSERT INTO STUDENTS (studentID, studentName, studentMajor) 

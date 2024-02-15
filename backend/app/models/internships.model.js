@@ -2,7 +2,14 @@ import sql from "../database.js";
 
 // Constructor
 const Internship = function (internship) {
-  this.internshipName = internship.internshipName;
+  this.internshipTitle = internship.internshipTitle;
+  this.internshipDescription = internship.internshipDescription;
+  this.internshipCompany = internship.internshipCompany;
+  this.internshipLocation = internship.internshipLocation;
+  this.internshipApplyDeadline = internship.internshipApplyDeadline;
+  this.internshipApplyLink = internship.internshipApplyLink;
+  this.internshipCitizenship = internship.internshipCitizenship;
+  this.internshipJobType = internship.internshipJobType;
 };
 
 // Create a new Internship
@@ -71,7 +78,7 @@ Internship.getInternshipById = (internshipId, result) => {
 // Update one Internship by ID
 Internship.updateInternshipById = (internshipId, newInternship, result) => {
   let query =
-    "UPDATE INTERNSHIPS SET internshipName = ? WHERE internshipId = ?";
+    "UPDATE INTERNSHIPS SET internshipTitle = ? WHERE internshipId = ?";
 
   sql.query(
     query,
