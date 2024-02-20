@@ -18,32 +18,16 @@ CREATE TABLE IF NOT EXISTS INTERNSHIPS (
   internshipApplyLink VARCHAR(100) NOT NULL,
   internshipCitizenship VARCHAR(100) NOT NULL,
   internshipJobType VARCHAR(100) NOT NULL,
+  internshipSkills VARCHAR(10000) NOT NULL,
   PRIMARY KEY (internshipID)
 );
-
-UPDATE INTERNSHIPS SET internshipApplyDeadline="2023-12-08T08:33:27.000Z";
-
-ALTER TABLE INTERNSHIPS
-MODIFY COLUMN internshipApplyDeadline VARCHAR(100);
-
-ALTER TABLE INTERNSHIPS
-MODIFY COLUMN internshipApplyDeadline VARCHAR(100) NOT NULL;
 
 
 /* If you ever need to recreate the students table */
 DROP TABLE IF EXISTS STUDENTS;
 CREATE TABLE IF NOT EXISTS STUDENTS (
   studentID VARCHAR(100) NOT NULL, 
-  studentName VARCHAR(100) NOT NULL,
-  studentMajor VARCHAR(100) NOT NULL,
   PRIMARY KEY (studentID)
-);
-
-DROP TABLE IF EXISTS JOBSKILLS;
-CREATE TABLE JOBSKILLS (
-  jobID INT NOT NULL,
-  skillID INT NOT NULL,
-  PRIMARY KEY (jobID, skillID)
 );
 
 /* Inserting a value into the skills table */
@@ -51,64 +35,9 @@ INSERT INTO SKILLS (skillName)
 VALUES ('Python');
 
 /* Inserting a value into the internships table */
-INSERT INTO INTERNSHIPS (internshipTitle, internshipDescription, internshipCompany, internshipLocation,  internshipApplyDeadline, internshipApplyLink, internshipCitizenship, internshipJobType) 
-VALUES ('Behavioral Therapist Intern', 'This is an internship about behavioral therapists.', 'BetterHelp', 'Blacksburg, VA', '03/03/2024', 'www.betterhelp.com', 'US Citizen', 'Internship');
+INSERT INTO INTERNSHIPS (internshipTitle, internshipDescription, internshipCompany, internshipLocation,  internshipApplyDeadline, internshipApplyLink, internshipCitizenship, internshipJobType,internshipSkills) 
+VALUES ('Behavioral Therapist Intern', 'This is an internship about behavioral therapists.', 'BetterHelp', 'Blacksburg, VA', '03/03/2024', 'www.betterhelp.com', 'US Citizen', 'Internship', 'Java;Python;');
 
 /* Inserting a value into the students table */
-INSERT INTO STUDENTS (studentID, studentName, studentMajor) 
-VALUES ('andyluu', 'Andy Luu', 'Computer Science');
-
-INSERT INTO SKILLS (skillName) 
-VALUES ("100-Ton Master Captain's License");
-INSERT INTO SKILLS (skillName) 
-VALUES ('Writing');
-INSERT INTO SKILLS (skillName) 
-VALUES ('Planning');
-INSERT INTO SKILLS (skillName) 
-VALUES ('Management');
-INSERT INTO SKILLS (skillName) 
-VALUES ('Coordinating');
-INSERT INTO SKILLS (skillName) 
-VALUES ('Customer Service');
-INSERT INTO SKILLS (skillName) 
-VALUES ('Leadership');
-INSERT INTO SKILLS (skillName) 
-VALUES ('Microsoft Office');
-INSERT INTO SKILLS (skillName) 
-VALUES ('Research');
-INSERT INTO SKILLS (skillName) 
-VALUES ('Problem Solving');
-INSERT INTO SKILLS (skillName) 
-VALUES ('Zoom (Video Conferencing Tool)');
-INSERT INTO SKILLS (skillName) 
-VALUES ('Student Information Systems');
-INSERT INTO SKILLS (skillName) 
-VALUES ('Learning Management Systems');
-
-INSERT INTO JOBSKILLS (jobID, skillID) 
-VALUES (1,1);
-INSERT INTO JOBSKILLS (jobID, skillID) 
-VALUES (2,3);
-INSERT INTO JOBSKILLS (jobID, skillID) 
-VALUES (2,1);
-INSERT INTO JOBSKILLS (jobID, skillID) 
-VALUES (4,1);
-INSERT INTO JOBSKILLS (jobID, skillID) 
-VALUES (5,1);
-INSERT INTO JOBSKILLS (jobID, skillID) 
-VALUES (6,1);
-INSERT INTO JOBSKILLS (jobID, skillID) 
-VALUES (7,1);
-INSERT INTO JOBSKILLS (jobID, skillID) 
-VALUES (1,6);
-INSERT INTO JOBSKILLS (jobID, skillID) 
-VALUES (3,6);
-
-SELECT * FROM SKILLS INNER JOIN JOBSKILLS ON SKILLS.skillID = JOBSKILLS.skillID WHERE jobID = 2;
-
-ALTER TABLE SPORT
-DROP COLUMN sportImageLink;
-
-SELECT assists, blocks, steals from BASKETBALLPLAYER WHERE playerID="00fb2704-aa25-4ef7-8972-cde454810810";
-
-SELECT playerID FROM AMERICANFOOTBALLPLAYER;
+INSERT INTO STUDENTS (studentID) 
+VALUES ('andyluu');
