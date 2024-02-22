@@ -1,7 +1,6 @@
 import Student from "../models/students.model.js";
 
-const StudentController = () => {
-};
+const StudentController = () => {};
 // Create a new Student
 StudentController.create = (request, response) => {
   // Validate the Request
@@ -15,9 +14,9 @@ StudentController.create = (request, response) => {
   // Preform the Create Operation on the DataBase
   Student.create(newStudent, (error, data) => {
     if (error) {
-      response
-        .status(500)
-        .send({ message: error.message || "Error when creating a new Student" });
+      response.status(500).send({
+        message: error.message || "Error when creating a new Student",
+      });
     } else {
       response.send(data);
     }
@@ -112,7 +111,9 @@ StudentController.removeStudentById = (request, response) => {
     } else {
       response.send({
         message:
-          "Student with the studentId: " + studentId + " was deleted successfully.",
+          "Student with the studentId: " +
+          studentId +
+          " was deleted successfully.",
       });
     }
   });
