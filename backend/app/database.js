@@ -44,6 +44,6 @@ const handleDisconnect = () => {
   });
 };
 
-handleDisconnect();
+//handleDisconnect();
 
 export default connection;
